@@ -2,17 +2,19 @@ version: '3'
 
 services:
   product-service:
+    container_name: product-service
     build: ./product
     volumes:
-      - ./product:/usr/src/app
+      - ./product:/app
     ports:
-      - 5001:80
+      - 5001:8080
 
   website:
-    image: php:apache
+    container_name: website
+    build: ./website
     volumes:
-      - ./website:/var/www/html
+      - ./website:/app
     ports:
-      - 5000:80
+      - 5000:3000
     depends_on:
       - product-service
