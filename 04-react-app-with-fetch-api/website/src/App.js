@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://hn.algolia.com/api/v1/search?query=redux',
+        'http://localhost:8080/products',
       );
 
       setData(result.data);
@@ -18,12 +18,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox!!</h1>
+      <h1>Hello CodeSandbox!!!!!!</h1>
       <h2>Start editing to see some!!!</h2>
       <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
+        {data.hits.map(product => (
+          <li key={product.objectID}>
+            <a href={product.url}>{product.title}</a>
           </li>
         ))}
       </ul>
